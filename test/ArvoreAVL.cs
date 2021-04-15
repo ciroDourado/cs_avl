@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 
 class ArvoreAVL {
 	// atributos
@@ -33,8 +33,8 @@ class ArvoreAVL {
 	} // fim do método Ordenar
 
 
-	private Stack NosDesbalanceados() {
-		return new Stack();
+	private Stack<NoArvore> NosDesbalanceados() {
+		return new Stack<NoArvore>();
 	} // fim do método NosDesbalanceados
 
 
