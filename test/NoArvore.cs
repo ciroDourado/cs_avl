@@ -58,6 +58,15 @@ class NoArvore {
 		return noAtual;
 	} // fim NoAnterior
 
+	public
+	int Altura() {
+		return 0;
+	} // fim Altura
+
+	public
+	int DiferencaAlturaEsqDir() {
+		return 1;
+	} // fim DiferencaAlturaEsqDir
 
 
 	// metodos padrao para atributo Esquerda
