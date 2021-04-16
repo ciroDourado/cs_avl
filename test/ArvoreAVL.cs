@@ -24,14 +24,19 @@ class ArvoreAVL {
 
 	// métodos fechados
 	private bool EstaDesbalanceada() {
-		return (this.NosDesbalanceados()).Count == 0;
+		return (this.NosDesbalanceados()).Count != 0;
 	} // fim do método EstaDesbalanceada
 
 
 	private Stack<NoArvore> NosDesbalanceados() {
 		var nos = this.TodosOsNos();
+		var nosDesbalanceados = new Stack<NoArvore>();
 
-		return new Stack<NoArvore>();
+		foreach(NoArvore no in nos) {
+			if( no.DiferencaAlturaEsqDir() > 1 )
+				nosDesbalanceados.Push(no);
+		}
+		return nosDesbalanceados;
 	} // fim do método NosDesbalanceados
 
 
