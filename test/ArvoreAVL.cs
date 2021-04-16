@@ -12,12 +12,12 @@ class ArvoreAVL {
 		this.arvore = new ArvoreBinaria();
 	} // fim construtor padrão
 
-	
+
 	public void Inserir( Tabela dados ) {
-		(this.arvore).Inserir(dados);
+		this.arvore.Inserir(dados);
 		if( this.EstaDesbalanceada()) this.Ordenar();
 	} // fim do método Inserir
-	
+
 
 
 
@@ -28,14 +28,26 @@ class ArvoreAVL {
 	} // fim do método EstaDesbalanceada
 
 
+	private Stack<NoArvore> NosDesbalanceados() {
+		var nos = this.TodosOsNos();
+
+		return new Stack<NoArvore>();
+	} // fim do método NosDesbalanceados
+
+
+	private Stack<NoArvore> TodosOsNos() {
+		var iterador =  new Stack<NoArvore>();
+		    iterador.Push(this.arvore.Raiz());
+
+		var nos = new Stack<NoArvore>();
+		var quantidade = this.arvore.Contar();
+		return nos;
+	} // fim do método TodosOsNos
+
+
 	private void Ordenar() {
 		return;
 	} // fim do método Ordenar
-
-
-	private Stack<NoArvore> NosDesbalanceados() {
-		return new Stack<NoArvore>();
-	} // fim do método NosDesbalanceados
 
 
 } // fim da classe ArvoreAVL

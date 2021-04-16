@@ -51,6 +51,11 @@ class ArvoreBinaria {
 			null;
 	} // fim Remover, e retornar os dados
 
+	public
+	NoArvore Raiz() {
+		return this.raiz;
+	} // fim Remover, e retornar os dados
+
 
 
 
