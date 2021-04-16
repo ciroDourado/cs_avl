@@ -41,6 +41,14 @@ class ArvoreAVL {
 
 		var nos = new Stack<NoArvore>();
 		var quantidade = this.arvore.Contar();
+
+		while( nos.Count != quantidade ) {
+			var no = iterador.Pop();
+			nos.Push(no);
+
+			if( no.HaEsquerda() ) iterador.Push(no.Esquerda());
+			if( no.HaDireita()  ) iterador.Push(no.Direita() );
+		}
 		return nos;
 	} // fim do método TodosOsNos
 
