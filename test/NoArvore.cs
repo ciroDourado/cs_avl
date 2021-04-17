@@ -7,6 +7,46 @@ class NoArvore {
 	private Tabela   dados;
 
 
+	// metodos padrao para atributo Esquerda
+	public NoArvore Esquerda() {
+		return this.esquerda;
+	} // fim (get/Obter) esquerda
+
+	public void Esquerda(NoArvore esquerda) {
+		this.esquerda = esquerda;
+	} // fim (set/Atribui) esquerda
+
+	public bool HaEsquerda() {
+		return this.esquerda != null;
+	} // fim try/Ha Esquerda
+
+
+
+	// metodos padrao para atributo Direita
+	public NoArvore Direita() {
+		return this.direita;
+	} // fim (get/Obter) direita
+
+	public void Direita(NoArvore direita) {
+		this.direita = direita;
+	} // fim (set/Atribui) direita
+
+	public bool HaDireita() {
+		return this.direita != null;
+	} // fim try/Ha Direita
+
+
+
+	// metodos padrao para atributo Dados
+	public Tabela Dados() {
+		return this.dados;
+	} // fim (get/Obter) dados
+
+	public string ID() {
+		return (this.dados).IdParaBusca();
+	} // fim (get/Obter) id
+
+
 
 	// metodos abertos
 	public NoArvore(Tabela dados) {
@@ -59,53 +99,31 @@ class NoArvore {
 	} // fim NoAnterior
 
 	public
-	int Altura() {
-		return 0;
-	} // fim Altura
-
-	public
 	int DiferencaAlturaEsqDir() {
-		return 1;
+		return Math.Abs(this.AlturaEsquerda() - this.AlturaDireita());
 	} // fim DiferencaAlturaEsqDir
 
 
-	// metodos padrao para atributo Esquerda
-	public NoArvore Esquerda() {
-		return this.esquerda;
-	} // fim (get/Obter) esquerda
 
-	public void Esquerda(NoArvore esquerda) {
-		this.esquerda = esquerda;
-	} // fim (set/Atribui) esquerda
+	// métodos fechados
+	private
+	int AlturaEsquerda() {
+		return this.HaEsquerda()?
+			this.esquerda.Altura():
+			0;
+	} // fim AlturaEsquerda
 
-	public bool HaEsquerda() {
-		return this.esquerda != null;
-	} // fim try/Ha Esquerda
+	// métodos fechados
+	private
+	int AlturaDireita() {
+		return this.HaDireita()?
+			this.direita.Altura():
+			0;
+	} // fim AlturaEsquerda
 
-
-
-	// metodos padrao para atributo Direita
-	public NoArvore Direita() {
-		return this.direita;
-	} // fim (get/Obter) direita
-
-	public void Direita(NoArvore direita) {
-		this.direita = direita;
-	} // fim (set/Atribui) direita
-
-	public bool HaDireita() {
-		return this.direita != null;
-	} // fim try/Ha Direita
-
-
-
-	// metodos padrao para atributo Dados
-	public Tabela Dados() {
-		return this.dados;
-	} // fim (get/Obter) dados
-
-	public string ID() {
-		return (this.dados).IdParaBusca();
-	} // fim (get/Obter) id
+	private
+	int Altura() {
+		return 1;
+	} // fim Altura
 
 } // fim classe NoArvore
