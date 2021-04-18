@@ -13,10 +13,25 @@ class ArvoreAVL {
 	} // fim construtor padrão
 
 
+	public bool EstaVazia() {
+		return this.arvore.EstaVazia();
+	} // fim EstaVazia
+
+
 	public void Inserir( Tabela dados ) {
 		this.arvore.Inserir(dados);
 		if( this.EstaDesbalanceada()) this.Ordenar();
 	} // fim do método Inserir
+
+
+	public int Contar() {
+		return this.arvore.Contar();
+	} // fim Contar
+
+
+	public NoArvore Buscar( string elemento ) {
+		return this.arvore.Buscar(elemento);
+	} // fim Buscar
 
 
 	public NoArvore Raiz() {
@@ -27,7 +42,7 @@ class ArvoreAVL {
 	public int Altura() {
 		return this.arvore.EstaVazia()?
 			0:
-			this.arvore.Raiz().Altura();
+			this.Raiz().Altura();
 	} // fim do método (get/Obter) Raiz
 
 
