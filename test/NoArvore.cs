@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 class NoArvore {
 	// atributos
@@ -99,9 +100,24 @@ class NoArvore {
 	} // fim NoAnterior
 
 	public
-	int DiferencaAlturaEsqDir() {
-		return Math.Abs(this.AlturaEsquerda() - this.AlturaDireita());
-	} // fim DiferencaAlturaEsqDir
+	int Altura() {
+		var nos = new Queue<NoArvore>();
+			nos.Enqueue(this);
+		var altura = 0;
+
+		while( nos.Count > 0 ) {
+			altura++;
+			this.DescerDeNivel(nos);
+		}
+		return altura;
+	} // fim Altura
+
+	public
+	int DiferencaAlturaFilhos() {
+		var filhoEsquerdo = this.AlturaEsquerda();
+		var filhoDireito  = this.AlturaDireita ();
+		return Math.Abs(filhoEsquerdo - filhoDireito);
+	} // fim DiferencaAlturaFilhos
 
 
 
@@ -113,7 +129,6 @@ class NoArvore {
 			0;
 	} // fim AlturaEsquerda
 
-	// métodos fechados
 	private
 	int AlturaDireita() {
 		return this.HaDireita()?
@@ -122,8 +137,16 @@ class NoArvore {
 	} // fim AlturaEsquerda
 
 	private
-	int Altura() {
-		return 1;
-	} // fim Altura
+	void DescerDeNivel(Queue<NoArvore> nos) {
+		var nosDoNivelAtual = nos.Count;
+
+		while( nosDoNivelAtual > 0 ) {
+			var noAtual = nos.Dequeue();
+			nosDoNivelAtual--;
+
+			if( noAtual.HaEsquerda() ) nos.Enqueue( noAtual.esquerda);
+			if( noAtual.HaDireita () ) nos.Enqueue( noAtual.direita );
+		}
+	} // fim DescerDeNivel
 
 } // fim classe NoArvore

@@ -6,7 +6,7 @@ class Principal {
 	static void Main() {
 		var contatos = new ArvoreAVL();
 
-		
+
 	} // fim da Main
 
 

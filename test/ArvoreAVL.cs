@@ -19,6 +19,18 @@ class ArvoreAVL {
 	} // fim do método Inserir
 
 
+	public NoArvore Raiz() {
+		return this.arvore.Raiz();
+	} // fim do método (get/Obter) Raiz
+
+
+	public int Altura() {
+		return this.arvore.EstaVazia()?
+			0:
+			this.arvore.Raiz().Altura();
+	} // fim do método (get/Obter) Raiz
+
+
 
 
 
@@ -33,7 +45,7 @@ class ArvoreAVL {
 		var nosDesbalanceados = new Stack<NoArvore>();
 
 		foreach(NoArvore no in nos) {
-			if( no.DiferencaAlturaEsqDir() > 1 )
+			if( no.DiferencaAlturaFilhos() > 1 )
 				nosDesbalanceados.Push(no);
 		}
 		return nosDesbalanceados;
