@@ -134,7 +134,7 @@ class NoArvore {
 		return this.HaDireita()?
 			this.direita.Altura():
 			0;
-	} // fim AlturaEsquerda
+	} // fim AlturaDireita
 
 	private
 	void DescerDeNivel(Queue<NoArvore> nos) {
