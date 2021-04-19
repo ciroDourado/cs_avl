@@ -54,7 +54,12 @@ class ArvoreBinaria {
 	public
 	NoArvore Raiz() {
 		return this.raiz;
-	} // fim Remover, e retornar os dados
+	} // fim get/Obter raiz
+
+	public
+	void Raiz( NoArvore raiz ) {
+		this.raiz = raiz;
+	} // fim set/Atribuir raiz
 
 
 
