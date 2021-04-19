@@ -86,8 +86,31 @@ class ArvoreAVL {
 
 
 	private void Ordenar() {
+		Stack<NoArvore> nos = NosDesbalanceados();
+
+		while( nos.Count != 0 ) {
+			var noAtual = nos.Pop();
+			this.Rotacionar(noAtual);
+		}
 		return;
 	} // fim do método Ordenar
+
+	
+	private void Rotacionar( NoArvore no ) {
+		no.AlturaEsquerda() > no.AlturaDireita()?
+			this.RotacionarParaEsquerda(no):
+			this.RotacionarParaDireita (no);
+	} // fim do método Rotacionar
+
+
+	private void RotacionarParaEsquerda( NoArvore no ) {
+
+	} // fim do método RotacionarParaEsquerda
+
+
+	private void RotacionarParaDireita( NoArvore no ) {
+
+	} // fim do método RotacionarParaDireita
 
 
 } // fim da classe ArvoreAVL
