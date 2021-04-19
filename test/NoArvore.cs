@@ -113,6 +113,20 @@ class NoArvore {
 	} // fim Altura
 
 	public
+	int AlturaEsquerda() {
+		return this.HaEsquerda()?
+			this.esquerda.Altura():
+			0;
+	} // fim AlturaEsquerda
+
+	public
+	int AlturaDireita() {
+		return this.HaDireita()?
+			this.direita.Altura():
+			0;
+	} // fim AlturaDireita
+
+	public
 	int DiferencaAlturaFilhos() {
 		var filhoEsquerdo = this.AlturaEsquerda();
 		var filhoDireito  = this.AlturaDireita ();
@@ -122,20 +136,6 @@ class NoArvore {
 
 
 	// métodos fechados
-	private
-	int AlturaEsquerda() {
-		return this.HaEsquerda()?
-			this.esquerda.Altura():
-			0;
-	} // fim AlturaEsquerda
-
-	private
-	int AlturaDireita() {
-		return this.HaDireita()?
-			this.direita.Altura():
-			0;
-	} // fim AlturaDireita
-
 	private
 	void DescerDeNivel(Queue<NoArvore> nos) {
 		var nosDoNivelAtual = nos.Count;
