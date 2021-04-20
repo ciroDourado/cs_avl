@@ -43,7 +43,7 @@ class ArvoreAVL {
 		return this.arvore.EstaVazia()?
 			0:
 			this.Raiz().Altura();
-	} // fim do método (get/Obter) Raiz
+	} // fim do método para calcular Altura
 
 
 
@@ -109,7 +109,13 @@ class ArvoreAVL {
 
 
 	private void RotacionarParaDireita( NoArvore no ) {
-		return;
+		NoArvore filho = no.Esquerda();
+		no.Esquerda( filho.Direita());
+		filho.Direita(no);
+		
+		if( no == this.Raiz() ) 
+			//this.RaizParaDireita(no);
+		else this.NoParaDireita(no);
 	} // fim do método RotacionarParaDireita
 
 
