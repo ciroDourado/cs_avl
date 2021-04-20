@@ -109,7 +109,13 @@ class ArvoreAVL {
 
 
 	private void RotacionarParaEsquerda( NoArvore no ) {
-		return;
+		NoArvore filho = no.Direita();
+		no.Direita( filho.Esquerda());
+		filho.Esquerda(no);
+		
+		if( no == this.Raiz() ) 
+			this.Raiz(filho);
+		else this.NoParaEsquerda(no);
 	} // fim do método RotacionarParaEsquerda
 
 
@@ -119,7 +125,7 @@ class ArvoreAVL {
 		filho.Direita(no);
 		
 		if( no == this.Raiz() ) 
-			//this.RaizParaDireita(no);
+			this.Raiz(filho);
 		else this.NoParaDireita(no);
 	} // fim do método RotacionarParaDireita
 
