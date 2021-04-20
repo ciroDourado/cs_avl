@@ -98,18 +98,18 @@ class ArvoreAVL {
 	
 	private void Rotacionar( NoArvore no ) {
 		if( no.AlturaEsquerda() > no.AlturaDireita() ) 
-			this.RotacionarParaEsquerda(no);
-		else this.RotacionarParaDireita (no);
+			this.RotacionarParaDireita(no);
+		else this.RotacionarParaEsquerda(no);
 	} // fim do método Rotacionar
 
 
 	private void RotacionarParaEsquerda( NoArvore no ) {
-
+		return;
 	} // fim do método RotacionarParaEsquerda
 
 
 	private void RotacionarParaDireita( NoArvore no ) {
-
+		return;
 	} // fim do método RotacionarParaDireita
 
 
