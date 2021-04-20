@@ -39,6 +39,11 @@ class ArvoreAVL {
 	} // fim do método (get/Obter) Raiz
 
 
+	public void Raiz( NoArvore nova_raiz ) {
+		this.arvore.Raiz(nova_raiz);
+	} // fim do método (set/Atribuir) Raiz
+
+
 	public int Altura() {
 		return this.arvore.EstaVazia()?
 			0:
