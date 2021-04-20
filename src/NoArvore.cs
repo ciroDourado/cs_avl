@@ -1,10 +1,51 @@
 using System;
+using System.Collections.Generic;
 
 class NoArvore {
 	// atributos
 	private NoArvore esquerda;
 	private NoArvore direita;
 	private Tabela   dados;
+
+
+	// metodos padrao para atributo Esquerda
+	public NoArvore Esquerda() {
+		return this.esquerda;
+	} // fim (get/Obter) esquerda
+
+	public void Esquerda(NoArvore esquerda) {
+		this.esquerda = esquerda;
+	} // fim (set/Atribui) esquerda
+
+	public bool HaEsquerda() {
+		return this.esquerda != null;
+	} // fim try/Ha Esquerda
+
+
+
+	// metodos padrao para atributo Direita
+	public NoArvore Direita() {
+		return this.direita;
+	} // fim (get/Obter) direita
+
+	public void Direita(NoArvore direita) {
+		this.direita = direita;
+	} // fim (set/Atribui) direita
+
+	public bool HaDireita() {
+		return this.direita != null;
+	} // fim try/Ha Direita
+
+
+
+	// metodos padrao para atributo Dados
+	public Tabela Dados() {
+		return this.dados;
+	} // fim (get/Obter) dados
+
+	public string ID() {
+		return (this.dados).IdParaBusca();
+	} // fim (get/Obter) id
 
 
 
@@ -58,45 +99,54 @@ class NoArvore {
 		return noAtual;
 	} // fim NoAnterior
 
+	public
+	int Altura() {
+		var nos = new Queue<NoArvore>();
+			nos.Enqueue(this);
+		var altura = 0;
+
+		while( nos.Count > 0 ) {
+			altura++;
+			this.DescerDeNivel(nos);
+		}
+		return altura;
+	} // fim Altura
+
+	public
+	int AlturaEsquerda() {
+		return this.HaEsquerda()?
+			this.esquerda.Altura():
+			0;
+	} // fim AlturaEsquerda
+
+	public
+	int AlturaDireita() {
+		return this.HaDireita()?
+			this.direita.Altura():
+			0;
+	} // fim AlturaDireita
+
+	public
+	int DiferencaAlturaFilhos() {
+		var filhoEsquerdo = this.AlturaEsquerda();
+		var filhoDireito  = this.AlturaDireita ();
+		return Math.Abs(filhoEsquerdo - filhoDireito);
+	} // fim DiferencaAlturaFilhos
 
 
-	// metodos padrao para atributo Esquerda
-	public NoArvore Esquerda() {
-		return this.esquerda;
-	} // fim (get/Obter) esquerda
 
-	public void Esquerda(NoArvore esquerda) {
-		this.esquerda = esquerda;
-	} // fim (set/Atribui) esquerda
+	// métodos fechados
+	private
+	void DescerDeNivel(Queue<NoArvore> nos) {
+		var nosDoNivelAtual = nos.Count;
 
-	public bool HaEsquerda() {
-		return this.esquerda != null;
-	} // fim try/Ha Esquerda
+		while( nosDoNivelAtual > 0 ) {
+			var noAtual = nos.Dequeue();
+			nosDoNivelAtual--;
 
-
-
-	// metodos padrao para atributo Direita
-	public NoArvore Direita() {
-		return this.direita;
-	} // fim (get/Obter) direita
-
-	public void Direita(NoArvore direita) {
-		this.direita = direita;
-	} // fim (set/Atribui) direita
-
-	public bool HaDireita() {
-		return this.direita != null;
-	} // fim try/Ha Direita
-
-
-
-	// metodos padrao para atributo Dados
-	public Tabela Dados() {
-		return this.dados;
-	} // fim (get/Obter) dados
-
-	public string ID() {
-		return (this.dados).IdParaBusca();
-	} // fim (get/Obter) id
+			if( noAtual.HaEsquerda() ) nos.Enqueue( noAtual.esquerda);
+			if( noAtual.HaDireita () ) nos.Enqueue( noAtual.direita );
+		}
+	} // fim DescerDeNivel
 
 } // fim classe NoArvore

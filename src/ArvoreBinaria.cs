@@ -51,6 +51,29 @@ class ArvoreBinaria {
 			null;
 	} // fim Remover, e retornar os dados
 
+	public
+	NoArvore Raiz() {
+		return this.raiz;
+	} // fim get/Obter raiz
+
+	public
+	void Raiz( NoArvore raiz ) {
+		this.raiz = raiz;
+	} // fim set/Atribuir raiz
+
+
+	public
+	NoArvore BuscarPaiDe( NoArvore no ) {
+		var noAtual = this.raiz;
+		var proximo = noAtual.Proximo(no);
+
+		while( proximo != no ) {
+			noAtual = proximo;
+			proximo = noAtual.Proximo(no);
+		}
+		return noAtual;
+	} // fim BuscarPaiDe
+
 
 
 
@@ -202,19 +225,6 @@ class ArvoreBinaria {
 		removido.Esquerda(null);
 		removido.Direita (null);
 	} // fim RemoverPaiDeDois
-
-
-	private
-	NoArvore BuscarPaiDe( NoArvore no ) {
-		var noAtual = this.raiz;
-		var proximo = noAtual.Proximo(no);
-
-		while( proximo != no ) {
-			noAtual = proximo;
-			proximo = noAtual.Proximo(no);
-		}
-		return noAtual;
-	} // fim NoPaiDe
 
 
 } // fim classe ArvoreBinaria
