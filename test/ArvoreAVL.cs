@@ -112,10 +112,8 @@ class ArvoreAVL {
 		NoArvore filho = no.Direita();
 		no.Direita( filho.Esquerda());
 		filho.Esquerda(no);
-		
-		if( no == this.Raiz() ) 
-			this.Raiz(filho);
-		else this.NoParaEsquerda(no);
+	
+		this.AjustarPai(no, filho);	
 	} // fim do método RotacionarParaEsquerda
 
 
@@ -124,10 +122,24 @@ class ArvoreAVL {
 		no.Esquerda( filho.Direita());
 		filho.Direita(no);
 		
-		if( no == this.Raiz() ) 
-			this.Raiz(filho);
-		else this.NoParaDireita(no);
+		this.AjustarPai(no, filho);
 	} // fim do método RotacionarParaDireita
+
+	
+	private void AjustarPai( NoArvore no, NoArvore filho ) {
+		if( no != this.Raiz() ) {
+			this.ajustarPai(no, filho);
+		} else this.Raiz(filho);
+	} // fim do método AjustarPai
+
+		
+	private void ajustarPai( NoArvore no, NoArvore filho ) {
+		var pai = this.arvore.BuscarPaiDe(no);
+
+		if( pai.Esquerda() == no ) {
+			pai.Esquerda(filho);
+		} else pai.Direita(filho);
+	} // fim do método ajustarPai
 
 
 } // fim da classe ArvoreAVL
