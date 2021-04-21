@@ -1,5 +1,7 @@
-este repositório está em construção. Você é livre para dar qualquer feedback, mas não espere que algo funcione como deveria, ou que esteja correto.
+este projeto está finalizado
 
-this repository is still work-in-progress. You're free to give feedback about it, but don't expect that anything here work as they should.
+aguarde pela documentação a ser upada em README.md
 
-para finalizar: implementar remoção de elementos
+no mais, caso queira ver o código funcionando, vá ate test/Principal.cs
+
+caso queira aplicar, baixe src/ e copie os arquivos para o mesmo diretório aonde você está colocando seus códigos-fonte
