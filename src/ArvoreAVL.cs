@@ -24,6 +24,15 @@ class ArvoreAVL {
 	} // fim do método Inserir
 
 
+	public Tabela Remover( string elemento ) {
+		var no    = this.Buscar(elemento);
+		var dados = this.arvore.Remover(elemento);
+
+		if( this.EstaDesbalanceada()) this.Ordenar();
+		return dados;
+	} // fim do método Remover
+
+
 	public int Contar() {
 		return this.arvore.Contar();
 	} // fim Contar
